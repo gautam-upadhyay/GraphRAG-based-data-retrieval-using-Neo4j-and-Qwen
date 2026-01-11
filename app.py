@@ -375,7 +375,10 @@ def answer(question: str) -> str:
 if __name__ == "__main__":
     import argparse
 
-    
+    parser = argparse.ArgumentParser(description="GraphRAG over Neo4j with Qwen2 (Ollama)")
+    parser.add_argument("-q", "--question", type=str, help="User question to answer")
+    parser.add_argument("--scores", action="store_true", help="Print Section and Weight/Score table instead of an answer")
+    args = parser.parse_args()
 
     if not args.question:
         print("Usage: python app.py -q \"What symptoms indicate lung cancer?\"")
